@@ -7,8 +7,10 @@
     <title>Page not found - Online Applications for Training at Moata School</title>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <link rel="icon" type="image/x-icon" href="img/favicon.png">
-                    <!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-7FEB3JNE14"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-7FEB3JNE14'); </script>
-                     
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7FEB3JNE14"></script>
+    <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-7FEB3JNE14'); </script>
+
     <style>
         body {
             background-image: url(background_images/rb_28469.png);
@@ -64,7 +66,7 @@
         }
 
         .submit_button {
-            background-color:red;
+            background-color: red;
             color: white;
             cursor: pointer;
             width: 100px;
@@ -75,8 +77,8 @@
             color: white;
         }
 
-         /* Navigation bar styling */
-         .navbar {
+        /* Navigation bar styling */
+        .navbar {
             position: fixed;
             top: -0.5px;
             display: flex;
@@ -109,8 +111,8 @@
             bottom: -15px;
         }
 
-                /* Preloader container */
-                #preloader {
+        /* Preloader container */
+        #preloader {
             position: fixed;
             width: 100%;
             height: 100%;
@@ -159,153 +161,119 @@
     }
 } */
 
+
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: red;
+        }
+
+        /* Responsive nav */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: white;
+                position: absolute;
+                top: 60px;
+                right: 10px;
+                width: 80%;
+                max-width: 300px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                padding: 10px;
+                z-index: 1000;
+            }
+
+            .nav-links a {
+                padding: 10px;
+                display: block;
+                color: black;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .nav-links a:last-child {
+                border-bottom: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-        <!-- Preloader -->
-        <div id="preloader">
-            <img src="img/Moata-Loader-logo2.png" alt="Loading...">
-        </div>
-    
-        <script>
-            // Add a dynamic timeout for hiding the preloader
-            window.addEventListener("load", function () {
-                const minLoadTime = 3000; // Minimum load time in milliseconds
-                setTimeout(function () {
-                    document.body.classList.add('loaded');
-                }, minLoadTime); // Always wait at least 2 seconds
-            });
-        </script>
+    <!-- Preloader -->
+    <div id="preloader">
+        <img src="img/Moata-Loader-logo2.png" alt="Loading...">
+    </div>
 
-        <!-- Navigation Bar -->
-        <div class="navbar">
-            <div class="logo">
-                <a id="logo-container" href="https://www.moataschool.co.za" target="_blank" class="brand-logo"><img
-                    src="img/favicon.png" width="60"></a>
-            </div>
-            <div class="nav-links hide-on-medium-and-down">
-                <a href="https://www.moataschool.co.za">Home</a>
-                <a href="https://www.moataschool.co.za/services.html">Services</a>
-                <a href="https://www.moataschool.co.za/prices.html">Course Prices</a>
-                <a href="https://www.moataschool.co.za/index.html#contact-footer">Contact</a>
-                <a href="https://www.moataschool.co.za/ppe.html">Protective Clothes</a>
-                <a href="https://www.moataschool.co.za/legal.html">Legal</a>
-                <a href="https://certificates.moataschool.co.za/">Certificates</a>
-                <!-- <a href="#">Apply Online</a> -->
+    <script>
+        // Add a dynamic timeout for hiding the preloader
+        window.addEventListener("load", function () {
+            const minLoadTime = 3000; // Minimum load time in milliseconds
+            setTimeout(function () {
+                document.body.classList.add('loaded');
+            }, minLoadTime); // Always wait at least 2 seconds
+        });
+    </script>
 
-            </div>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <a id="logo-container" href="https://www.moataschool.co.za" target="_blank" class="brand-logo">
+                <img src="img/favicon.png" width="60">
+            </a>
         </div>
+
+        <!-- Hamburger icon -->
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+        <!-- Navigation links -->
+        <div class="nav-links" id="navLinks">
+            <a href="https://www.moataschool.co.za">Home</a>
+            <a href="https://www.moataschool.co.za/services.html">Services</a>
+            <a href="https://www.moataschool.co.za/prices.html">Course Prices</a>
+            <a href="https://www.moataschool.co.za/index.html#contact-footer">Contact</a>
+            <a href="https://www.moataschool.co.za/ppe.html">Protective Clothes</a>
+            <a href="https://www.moataschool.co.za/legal.html">Legal</a>
+            <a href="https://certificates.moataschool.co.za/">Certificates</a>
+        </div>
+    </div>
+
 
     <form id="applicationForm">
         <div>
             <img src="background_images/noata4041.png" width="">
             <h1 style="font-size: 60px;">Page not found</h1>
-            <h5>The page you are looking for does not exit, click <a href="https://application.moataschool.co.za/"
-                    target="_blank" style="color: red;">here</a> to get back.</h5>
-        <a href="https://application.moataschool.co.za/"><button   class="submit_button">Go Back</button></a>
+            <h5>The page you are looking for does not exit, click <a href="index.html" target="_blank"
+                    style="color: red;">here</a> to get back.</h5>
+            <a href="index.html"><button class="submit_button">Go Back</button></a>
     </form>
 
-        <!-- Footer -->
-        <!-- <div class="footer">
+    <!-- Footer -->
+    <!-- <div class="footer">
             <p> Copyright © 2024 Moata School (Pty) Ltd. All Rights Reserved. Powered by <a class="red-text"
             href="https://www.semtexagency.co.za" target="_blank">Semtex Agency.</a></p>
         </div> -->
-
     <script>
-        document.getElementById('citizen').addEventListener('change', function () {
-            const citizenStatus = this.value;
-            document.getElementById('idField').style.display = citizenStatus === 'Yes' ? 'block' : 'none';
-            document.getElementById('passportField').style.display = citizenStatus === 'No' ? 'block' : 'none';
-        });
-
-        function validateIDorPassport() {
-            const citizenStatus = document.getElementById('citizen').value;
-            const idNumber = document.getElementById('idNumber').value;
-            const passportNumber = document.getElementById('passportNumber').value;
-
-            let isValid = true;
-
-            if (citizenStatus === 'Yes') {
-                if (!/^\d{13}$/.test(idNumber)) {
-                    document.getElementById('idNumber').classList.add('error');
-                    document.getElementById('idError').style.display = 'block';
-                    isValid = false;
-                    alert("Please enter a valid 13-digit ID number.");
-                } else {
-                    document.getElementById('idNumber').classList.remove('error');
-                    document.getElementById('idError').style.display = 'none';
-                }
-            } else if (citizenStatus === 'No') {
-                if (!/^\d{9}$/.test(passportNumber)) {
-                    document.getElementById('passportNumber').classList.add('error');
-                    document.getElementById('passportError').style.display = 'block';
-                    isValid = false;
-                    alert("Please enter a valid 9-digit passport number.");
-                } else {
-                    document.getElementById('passportNumber').classList.remove('error');
-                    document.getElementById('passportError').style.display = 'none';
-                }
-            }
-
-            return isValid;
+        function toggleMenu() {
+            var navLinks = document.getElementById("navLinks");
+            navLinks.style.display = navLinks.style.display === "flex" ? "none" : "flex";
         }
 
-        document.getElementById('submitBtn').addEventListener('click', function () {
-            if (!validateIDorPassport()) return; // Prevent submission if ID/Passport is invalid
-
-            const course = document.getElementById('course').value;
-            const citizen = document.getElementById('citizen').value;
-            const idNumber = document.getElementById('idNumber').value;
-            const passportNumber = document.getElementById('passportNumber').value;
-            const gender = document.getElementById('gender').value;
-            const dob = document.getElementById('dob').value;
-            const initials = document.getElementById('initials').value;
-            const surname = document.getElementById('surname').value;
-            const fullNames = document.getElementById('fullNames').value;
-            const email = document.getElementById('email').value;
-            const mobile = document.getElementById('mobile').value;
-            const address = document.getElementById('address').value;
-
-            if (!course || !citizen || !gender || !dob || !initials || !surname || !fullNames || !email || !mobile || !address ||
-                (citizen === 'Yes' && !idNumber) || (citizen === 'No' && !passportNumber)) {
-                alert("Please fill in all the required fields.");
-                return;
-            }
-
-            const body = `
-      Course: ${course}<br>
-      SA Citizen: ${citizen}<br>
-      ${citizen === 'Yes' ? `ID Number: ${idNumber}` : `Passport Number: ${passportNumber}`}<br>
-      Gender: ${gender}<br>
-      Date of Birth: ${dob}<br>
-      Initials: ${initials}<br>
-      Surname: ${surname}<br>
-      Full Names: ${fullNames}<br>
-      Email: ${email}<br>
-      Mobile: ${mobile}<br>
-      Address: ${address}
-    `;
-
-            Email.send({
-                SecureToken: "dd2bf18f-09a5-46bb-961d-8dc768301175",
-                To: 'messages.semtexagency@outlook.com',
-                From: "messages.semtexagency@outlook.com",
-                Subject: "New Student Application",
-                Body: body
-            }).then(
-                function () {
-                    alert("Application submitted successfully!");
-                    document.getElementById("applicationForm").reset();
+        // Optional: auto-close the menu when clicking a link (for better UX)
+        document.querySelectorAll('#navLinks a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    document.getElementById("navLinks").style.display = "none";
                 }
-            ).catch(
-                function (error) {
-                    alert("There was an error submitting your application, please try again.");
-                }
-            );
+            });
         });
     </script>
+
 
 </body>
 

@@ -7,8 +7,10 @@
     <title>Online Applications for Training at Moata School</title>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <link rel="icon" type="image/x-icon" href="img/favicon.png">
-                    <!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-7FEB3JNE14"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-7FEB3JNE14'); </script>
-                     
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7FEB3JNE14"></script>
+    <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-7FEB3JNE14'); </script>
+
     <style>
         body {
             background-image: url(background_images/rb_28469.png);
@@ -64,7 +66,7 @@
         }
 
         .submit_button {
-            background-color:red;
+            background-color: red;
             color: white;
             cursor: pointer;
         }
@@ -74,8 +76,8 @@
             color: white;
         }
 
-         /* Navigation bar styling */
-         .navbar {
+        /* Navigation bar styling */
+        .navbar {
             position: fixed;
             top: -0.5px;
             display: flex;
@@ -108,8 +110,8 @@
             bottom: -15px;
         }
 
-                /* Preloader container */
-                #preloader {
+        /* Preloader container */
+        #preloader {
             position: fixed;
             width: 100%;
             height: 100%;
@@ -158,146 +160,189 @@
     }
 } */
 
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: red;
+        }
+
+        /* Responsive nav */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: white;
+                position: absolute;
+                top: 60px;
+                right: 10px;
+                width: 80%;
+                max-width: 300px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                padding: 10px;
+                z-index: 1000;
+            }
+
+            .nav-links a {
+                padding: 10px;
+                display: block;
+                color: black;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .nav-links a:last-child {
+                border-bottom: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-        <!-- Preloader -->
-        <div id="preloader">
-            <img src="img/Moata-Loader-logo2.png" alt="Loading...">
-        </div>
-    
-        <script>
-            // Add a dynamic timeout for hiding the preloader
-            window.addEventListener("load", function () {
-                const minLoadTime = 3000; // Minimum load time in milliseconds
-                setTimeout(function () {
-                    document.body.classList.add('loaded');
-                }, minLoadTime); // Always wait at least 2 seconds
-            });
-        </script>
+    <!-- Preloader -->
+    <div id="preloader">
+        <img src="img/Moata-Loader-logo2.png" alt="Loading...">
+    </div>
 
-        <!-- Navigation Bar -->
-        <div class="navbar">
-            <div class="logo">
-                <a id="logo-container" href="https://www.moataschool.co.za" target="_blank" class="brand-logo"><img
-                    src="img/favicon.png" width="60"></a>
-            </div>
-            <div class="nav-links hide-on-medium-and-down">
-                <a href="https://www.moataschool.co.za">Home</a>
-                <a href="https://www.moataschool.co.za/services.html">Services</a>
-                <a href="https://www.moataschool.co.za/prices.html">Course Prices</a>
-                <a href="https://www.moataschool.co.za/index.html#contact-footer">Contact</a>
-                <a href="https://www.moataschool.co.za/ppe.html">Protective Clothes</a>
-                <a href="https://www.moataschool.co.za/legal.html">Legal</a>
-                <a href="https://certificates.moataschool.co.za/">Certificates</a>
-                <!-- <a href="#">Apply Online</a> -->
+    <script>
+        // Add a dynamic timeout for hiding the preloader
+        window.addEventListener("load", function () {
+            const minLoadTime = 3000; // Minimum load time in milliseconds
+            setTimeout(function () {
+                document.body.classList.add('loaded');
+            }, minLoadTime); // Always wait at least 2 seconds
+        });
+    </script>
 
-            </div>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <a id="logo-container" href="https://www.moataschool.co.za" target="_blank" class="brand-logo">
+                <img src="img/favicon.png" width="60">
+            </a>
         </div>
 
-    <form id="applicationForm">
-        <div>
-            <h2>Application for Training at Moata School</h2>
-            <h5>To find out more about course fees please click <a href="https://www.moataschool.co.za/prices.html"
-                    target="_blank">here</a></h5>
-            <label for="course">Which course would you like to apply for?</label>
-            <select id="course" required>
-                <option value="">Select a course</option>
-                <option value="SHE Rep(House keeping) in a workplace">SHE Rep(House keeping) in a workplace</option>
-                <option value="Operate a service truck">Operate a service truck</option>
-                <option value="Operate C30/C31-Overhead crane">Operate C30/C31-Overhead crane</option>
-                <option value="First Aid Level 1">First Aid Level 1</option>
-                <option value="Operate a forklift(Counter balanced lift trucks F1,F2,F3,F4)">Operate a forklift(Counter
-                    balanced lift trucks F1,F2,F3,F4)</option>
-                <option value="Conduct workplace occupational Health and Safety(OHS) Inspections">Conduct workplace
-                    occupational Health and Safety(OHS) Inspections</option>
-                <option value="Apply occupational health, safety and environmental principles">Apply occupational
-                    health, safety and environmental principles</option>
-                <option value="Operate a tracked dozer(BULLDOZER)">Operate a tracked dozer(BULLDOZER)</option>
-                <option value="Operate a skid steer loader(a BOB CAT)">Operate a skid steer loader(a BOB CAT)</option>
-                <option value="Operate a Telescopic Boom Handler">Operate a Telescopic Boom Handler</option>
-                <option value="Operate mobile elevating worK platform(MEWP)">Operate mobile elevating worK
-                    platform(MEWP)</option>
-                <option value="Operate an Excavator">Operate an Excavator</option>
-                <option value="Operate a Front end loader">Operate a Front end loader</option>
-                <option value="Operate a Backhoe/Loader(TLB)">Operate a Backhoe/Loader(TLB)</option>
-                <option value="Operate a Grader">Operate a Grader</option>
-                <option value="Operate articulated dump truck(ADT)">Operate articulated dump truck(ADT)</option>
-                <option value="Fire fighting level 1-2">Fire fighting level 1-2</option>
-                <option value="Respond and Clean a Spill/HAZMATS/Incident Investigation/HAZCHEM">Respond and Clean a
-                    Spill/HAZMATS/Incident Investigation/HAZCHEM</option>
-                <option value="SAQA US ID 229998 Working at Height">SAQA US ID 229998 Working at Height</option>
-                <option value="SAQA US ID 229995 Implement the Fall Protection Plan">SAQA US ID 229995 Implement the
-                    Fall Protection Plan</option>
-                <option value="SAQA US ID 243275 Scaffolding Erector">SAQA US ID 243275 Scaffolding Erector</option>
-                <option value="Operate a sideboom">Operate a sideboom</option>
-                <option value="Operate a scraper">Operate a scraper</option>
-            </select>
+        <!-- Hamburger icon -->
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+        <!-- Navigation links -->
+        <div class="nav-links" id="navLinks">
+            <a href="https://www.moataschool.co.za">Home</a>
+            <a href="https://www.moataschool.co.za/services.html">Services</a>
+            <a href="https://www.moataschool.co.za/prices.html">Course Prices</a>
+            <a href="https://www.moataschool.co.za/index.html#contact-footer">Contact</a>
+            <a href="https://www.moataschool.co.za/ppe.html">Protective Clothes</a>
+            <a href="https://www.moataschool.co.za/legal.html">Legal</a>
+            <a href="https://certificates.moataschool.co.za/">Certificates</a>
         </div>
-        <div>
-            <label for="citizen">Are you a SA Citizen in possession of a valid SA ID/Birth Certificate?</label>
-            <select id="citizen" required>
-                <option value="">Select an option</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-            </select>
-        </div>
+    </div>
+
+    <form id="applicationForm" action="https://api.web3forms.com/submit" method="POST">
+        <!-- Web3Forms Access Key -->
+        <input type="hidden" name="access_key" value="29db7c39-1945-4cb7-bd81-a52b1f84dc8f">
+        <input type="hidden" name="subject" value="New Online Application">
+        <input type="hidden" name="from_name" value="Online Applications">
+
+        <!-- Optional: Redirect after success -->
+        <input type="hidden" name="redirect" value="https://application.moataschool.co.za/thanks">
+
+        <h2>Application for Training at Moata School</h2>
+        <h5>To find out more about course fees please click
+            <a href="https://www.moataschool.co.za/prices.html" target="_blank">here</a>
+        </h5>
+
+        <label for="course">Which course would you like to apply for?</label>
+        <select name="Course" id="course" required>
+            <option value="">Select a course</option>
+            <option value="SHE Rep(House keeping) in a workplace">SHE Rep(House keeping) in a workplace</option>
+            <option value="Operate a service truck">Operate a service truck</option>
+            <option value="Operate C30/C31-Overhead crane">Operate C30/C31-Overhead crane</option>
+            <option value="First Aid Level 1">First Aid Level 1</option>
+            <option value="Operate a forklift(Counter balanced lift trucks F1,F2,F3,F4)">Operate a forklift(Counter
+                balanced lift trucks F1,F2,F3,F4)</option>
+            <option value="Conduct workplace occupational Health and Safety(OHS) Inspections">Conduct workplace
+                occupational Health and Safety(OHS) Inspections</option>
+            <option value="Apply occupational health, safety and environmental principles">Apply occupational
+                health, safety and environmental principles</option>
+            <option value="Operate a tracked dozer(BULLDOZER)">Operate a tracked dozer(BULLDOZER)</option>
+            <option value="Operate a skid steer loader(a BOB CAT)">Operate a skid steer loader(a BOB CAT)</option>
+            <option value="Operate a Telescopic Boom Handler">Operate a Telescopic Boom Handler</option>
+            <option value="Operate mobile elevating worK platform(MEWP)">Operate mobile elevating worK
+                platform(MEWP)</option>
+            <option value="Operate an Excavator">Operate an Excavator</option>
+            <option value="Operate a Front end loader">Operate a Front end loader</option>
+            <option value="Operate a Backhoe/Loader(TLB)">Operate a Backhoe/Loader(TLB)</option>
+            <option value="Operate a Grader">Operate a Grader</option>
+            <option value="Operate articulated dump truck(ADT)">Operate articulated dump truck(ADT)</option>
+            <option value="Fire fighting level 1-2">Fire fighting level 1-2</option>
+            <option value="Respond and Clean a Spill/HAZMATS/Incident Investigation/HAZCHEM">Respond and Clean a
+                Spill/HAZMATS/Incident Investigation/HAZCHEM</option>
+            <option value="SAQA US ID 229998 Working at Height">SAQA US ID 229998 Working at Height</option>
+            <option value="SAQA US ID 229995 Implement the Fall Protection Plan">SAQA US ID 229995 Implement the
+                Fall Protection Plan</option>
+            <option value="SAQA US ID 243275 Scaffolding Erector">SAQA US ID 243275 Scaffolding Erector</option>
+            <option value="Operate a sideboom">Operate a sideboom</option>
+            <option value="Operate a scraper">Operate a scraper</option>
+        </select>
+
+        <label for="citizen">Are you a SA Citizen in possession of a valid SA ID/Birth Certificate?</label>
+        <select name="SA Citizen" id="citizen" required>
+            <option value="">Select an option</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
         <div id="idField" style="display: none;">
             <label for="idNumber">ID Number</label>
-            <input type="text" id="idNumber">
-            <span id="idError" class="error-message">Please enter a valid 13-digit ID number.</span>
+            <input type="text" name="ID Number" id="idNumber">
         </div>
+
         <div id="passportField" style="display: none;">
             <label for="passportNumber">Passport Number</label>
-            <input type="text" id="passportNumber">
-            <span id="passportError" class="error-message">Please enter a valid 9-digit passport number.</span>
+            <input type="text" name="Passport Number" id="passportNumber">
         </div>
-        <div>
-            <label for="gender">Gender</label>
-            <select id="gender" required>
-                <option value="">Select Gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-            </select>
-        </div>
-        <div>
-            <label for="dob">Date of Birth</label>
-            <input type="date" id="dob" required>
-        </div>
-        <div>
-            <label for="initials">Initials</label>
-            <input type="text" id="initials" required>
-        </div>
-        <div>
-            <label for="surname">Surname</label>
-            <input type="text" id="surname" required>
-        </div>
-        <div>
-            <label for="fullNames">Full Names</label>
-            <input type="text" id="fullNames" required>
-        </div>
-        <div>
-            <label for="email">Email</label>
-            <input type="email" id="email" required>
-        </div>
-        <div>
-            <label for="mobile">Cellphone Number</label>
-            <input type="tel" id="mobile" required>
-        </div>
-        <div>
-            <label for="address">Address</label>
-            <input type="text" id="address" required>
-        </div>
-        <button type="button" id="submitBtn" class="submit_button">Submit Application</button>
+
+        <label for="gender">Gender</label>
+        <select name="Gender" id="gender" required>
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+
+        <label for="dob">Date of Birth</label>
+        <input type="date" name="Date of Birth" id="dob" required>
+
+        <label for="initials">Initials</label>
+        <input type="text" name="Initials" id="initials" required>
+
+        <label for="surname">Surname</label>
+        <input type="text" name="Surname" id="surname" required>
+
+        <label for="fullNames">Full Names</label>
+        <input type="text" name="Full Names" id="fullNames" required>
+
+        <label for="email">Email</label>
+        <input type="email" name="Email" id="email" required>
+
+        <label for="mobile">Cellphone Number</label>
+        <input type="tel" name="Cellphone Number" id="mobile" required>
+
+        <label for="address">Address</label>
+        <input type="text" name="Address" id="address" required>
+
+        <button type="submit" class="submit_button">Submit Application</button>
     </form>
 
-        <!-- Footer -->
-        <div class="footer">
-            <p> Copyright © 2024 Moata School (Pty) Ltd. All Rights Reserved. Powered by <a class="red-text"
-            href="https://www.semtexagency.co.za" target="_blank">Semtex Agency.</a></p>
-        </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p> Copyright © 2024 Moata School (Pty) Ltd. All Rights Reserved. Powered by <a class="red-text"
+                href="https://www.semtexagency.co.za" target="_blank">Semtex Agency.</a></p>
+    </div>
 
     <script>
         document.getElementById('citizen').addEventListener('change', function () {
@@ -306,92 +351,39 @@
             document.getElementById('passportField').style.display = citizenStatus === 'No' ? 'block' : 'none';
         });
 
-        function validateIDorPassport() {
-            const citizenStatus = document.getElementById('citizen').value;
-            const idNumber = document.getElementById('idNumber').value;
-            const passportNumber = document.getElementById('passportNumber').value;
+        // Optional: Validation before submission
+        document.getElementById("applicationForm").addEventListener("submit", function (e) {
+            const citizen = document.getElementById("citizen").value;
+            const idNumber = document.getElementById("idNumber").value;
+            const passportNumber = document.getElementById("passportNumber").value;
 
-            let isValid = true;
-
-            if (citizenStatus === 'Yes') {
-                if (!/^\d{13}$/.test(idNumber)) {
-                    document.getElementById('idNumber').classList.add('error');
-                    document.getElementById('idError').style.display = 'block';
-                    isValid = false;
-                    alert("Please enter a valid 13-digit ID number.");
-                } else {
-                    document.getElementById('idNumber').classList.remove('error');
-                    document.getElementById('idError').style.display = 'none';
-                }
-            } else if (citizenStatus === 'No') {
-                if (!/^\d{9}$/.test(passportNumber)) {
-                    document.getElementById('passportNumber').classList.add('error');
-                    document.getElementById('passportError').style.display = 'block';
-                    isValid = false;
-                    alert("Please enter a valid 9-digit passport number.");
-                } else {
-                    document.getElementById('passportNumber').classList.remove('error');
-                    document.getElementById('passportError').style.display = 'none';
-                }
+            if (citizen === "Yes" && !/^\d{13}$/.test(idNumber)) {
+                alert("Please enter a valid 13-digit ID number.");
+                e.preventDefault();
+            } else if (citizen === "No" && !/^\d{9}$/.test(passportNumber)) {
+                alert("Please enter a valid 9-digit passport number.");
+                e.preventDefault();
             }
-
-            return isValid;
-        }
-
-        document.getElementById('submitBtn').addEventListener('click', function () {
-            if (!validateIDorPassport()) return; // Prevent submission if ID/Passport is invalid
-
-            const course = document.getElementById('course').value;
-            const citizen = document.getElementById('citizen').value;
-            const idNumber = document.getElementById('idNumber').value;
-            const passportNumber = document.getElementById('passportNumber').value;
-            const gender = document.getElementById('gender').value;
-            const dob = document.getElementById('dob').value;
-            const initials = document.getElementById('initials').value;
-            const surname = document.getElementById('surname').value;
-            const fullNames = document.getElementById('fullNames').value;
-            const email = document.getElementById('email').value;
-            const mobile = document.getElementById('mobile').value;
-            const address = document.getElementById('address').value;
-
-            if (!course || !citizen || !gender || !dob || !initials || !surname || !fullNames || !email || !mobile || !address ||
-                (citizen === 'Yes' && !idNumber) || (citizen === 'No' && !passportNumber)) {
-                alert("Please fill in all the required fields.");
-                return;
-            }
-
-            const body = `
-      Course: ${course}<br>
-      SA Citizen: ${citizen}<br>
-      ${citizen === 'Yes' ? `ID Number: ${idNumber}` : `Passport Number: ${passportNumber}`}<br>
-      Gender: ${gender}<br>
-      Date of Birth: ${dob}<br>
-      Initials: ${initials}<br>
-      Surname: ${surname}<br>
-      Full Names: ${fullNames}<br>
-      Email: ${email}<br>
-      Mobile: ${mobile}<br>
-      Address: ${address}
-    `;
-
-            Email.send({
-                SecureToken: "dd2bf18f-09a5-46bb-961d-8dc768301175",
-                To: 'messages.semtexagency@outlook.com',
-                From: "messages.semtexagency@outlook.com",
-                Subject: "New Student Application",
-                Body: body
-            }).then(
-                function () {
-                    alert("Application submitted successfully!");
-                    document.getElementById("applicationForm").reset();
-                }
-            ).catch(
-                function (error) {
-                    alert("There was an error submitting your application, please try again.");
-                }
-            );
         });
     </script>
+
+
+    <script>
+        function toggleMenu() {
+            var navLinks = document.getElementById("navLinks");
+            navLinks.style.display = navLinks.style.display === "flex" ? "none" : "flex";
+        }
+
+        // Optional: auto-close the menu when clicking a link (for better UX)
+        document.querySelectorAll('#navLinks a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    document.getElementById("navLinks").style.display = "none";
+                }
+            });
+        });
+    </script>
+
 
 </body>
 
