@@ -311,7 +311,19 @@
             <option value="">Select Gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
+            <option value="Non-binary / Non-conforming">Non-binary / Non-conforming</option>
+            <option value="Transgender Male / Trans Man">Transgender Male / Trans Man</option>
+            <option value="Transgender Female / Trans Woman">Transgender Female / Trans Woman</option>
+            <option value="Prefer not to say">Prefer not to say</option>
+            <option value="Other">Other (please specify)</option>
         </select>
+
+        <!-- Textbox hidden by default -->
+        <div id="otherGenderField" style="display: none; margin-top: 10px;">
+            <label for="otherGender">Please specify your gender</label>
+            <input type="text" name="Other Gender" id="otherGender">
+        </div>
+
 
         <label for="dob">Date of Birth</label>
         <input type="date" name="Date of Birth" id="dob" required>
@@ -336,8 +348,9 @@
         <br><br>
 
         <button type="submit" class="submit_button">Submit Application</button>
-        
-        <h6 style="font-size: 9.5px; text-decoration: none;">*Your information is protected and will only be used for admission purposes in line with our 
+
+        <h6 style="font-size: 9.5px; text-decoration: none;">*Your information is protected and will only be used for
+            admission purposes in line with our
             <a href="https://www.moataschool.co.za/privacy" target="_blank" style="color: red;">privacy policy.</a>
         </h6>
         <br><br><br>
@@ -391,6 +404,19 @@
             });
         });
     </script>
+
+    <script>
+    document.getElementById('gender').addEventListener('change', function () {
+        const otherGenderField = document.getElementById('otherGenderField');
+        if (this.value === 'Other') {
+            otherGenderField.style.display = 'block';
+            document.getElementById('otherGender').required = true;
+        } else {
+            otherGenderField.style.display = 'none';
+            document.getElementById('otherGender').required = false;
+        }
+    });
+</script>
 
 
 </body>
