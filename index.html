@@ -2,112 +2,220 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Applications for Training at Moata School</title>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <link rel="icon" type="image/x-icon" href="img/favicon.png">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7FEB3JNE14"></script>
-    <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-7FEB3JNE14'); </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Applications for Training at Moata School</title>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
     <style>
-        body {
-            background-image: url(background_images/rb_28469.png);
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+        /* ===== Global Styles ===== */
+        * {
             margin: 0;
-            padding: 40px 20px;
+            padding: 0;
             box-sizing: border-box;
         }
 
-        form {
-            max-width: 500px;
-            width: 100%;
-            padding: 20px;
-            background-color: #f7f7f7;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin-top: 20px;
+        body {
+            background-image: url(background_images/rb_28469.png);
+            background-repeat: no-repeat;
+            background-position: 0cap;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background-color: #f8f8f8;
         }
 
-        form div {
-            margin-bottom: 15px;
+        a {
+            text-decoration: none;
+            color: #438430;
+        }
+
+        /* ===== Brand Colors ===== */
+        :root {
+            --primary-green: red;
+            --secondary-brown: #c2931c;
+            --text-light: #fff;
+            --light-bg: #f4f9f4;
+            --border-color: #ccc;
+        }
+
+        /* ===== Header ===== */
+        header {
+            background-color: var(--primary-green);
+            padding: 1rem 5%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        .logo span {
+            color: #ffcc80;
+        }
+
+        .back-link {
+            color: var(--text-light);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* ===== Hero Section ===== */
+        .hero {
+            background-color: var(--light-bg);
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        /* ===== Form Container ===== */
+        .form-container {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 2.5rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-title {
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--secondary-brown);
+            padding-bottom: 0.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
         }
 
         label {
             display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
         }
 
         input,
         select,
-        button {
+        textarea {
             width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
+            padding: 0.8rem;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
         }
 
-        input.error {
-            border: 1px solid red;
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--primary-green);
+            outline: none;
+            box-shadow: 0 0 5px rgba(67, 132, 48, 0.3);
         }
 
-        .error-message {
-            color: red;
-            font-size: 12px;
+        .form-row {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .btn-submit {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 0.9rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #9C27B0;
+        }
+
+        /* Conditional Fields */
+        .hidden {
             display: none;
         }
 
-        .submit_button {
-            background-color: red;
-            color: white;
-            cursor: pointer;
-        }
-
-        .submit_button:hover {
-            background-color: purple;
-            color: white;
-        }
-
-        /* Navigation bar styling */
-        .navbar {
-            position: fixed;
-            top: -0.5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: white;
-            color: white;
-            width: 100%;
-            border: 1px solid red;
-        }
-
-        .navbar a {
-            color: black;
-            text-decoration: none;
-            padding: 0 15px;
-        }
-
-        .navbar a:hover {
-            color: red;
-        }
-
-        .footer {
+        /* Success Message */
+        .success-message {
             text-align: center;
-            /* padding: 10px; */
-            background-color: white;
-            color: black;
-            position: fixed;
-            width: 100%;
-            bottom: -15px;
+            padding: 1.5rem;
+            background-color: #e8f5e8;
+            color: var(--primary-green);
+            border-radius: 8px;
+            border: 1px solid #a8d8a0;
+            margin: 1rem 0;
+        }
+
+        .success-message i {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 1.5rem;
+                margin: 2rem 2%;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Red border for invalid fields */
+        input.error-border,
+        select.error-border,
+        textarea.error-border {
+            border: 2px solid #e74c3c !important;
+            box-shadow: 0 0 5px rgba(231, 76, 60, 0.3);
+        }
+
+        input.error-border:focus,
+        select.error-border:focus,
+        textarea.error-border:focus {
+            border: 2px solid #e74c3c;
         }
 
         /* Preloader container */
@@ -154,49 +262,226 @@
             display: none;
         }
 
-        /* @media (max-width: 992px) {
-    .hide-on-medium-and-down {
-        display: none;
-    }
-} */
+        /* ===== Footer Styles ===== */
+        .main-footer {
+            background-color: #1a1a1a;
+            color: #ddd;
+            position: relative;
+            overflow: hidden;
+            /* Contains the watermark */
+        }
 
-        .menu-toggle {
-            display: none;
-            font-size: 28px;
-            cursor: pointer;
+        /* ===== Smaller, Positioned Watermark ===== */
+        .footer-logo-watermark {
+            position: absolute;
+            top: -20%;
+            /* Adjust vertical position */
+            left: -6%;
+            /* Sits just inside the left edge */
+            width: 570px;
+            /* Much smaller than before */
+            opacity: 0.2;
+            /* Subtle, but visible */
+            pointer-events: none;
+            z-index: 1;
+            transform: rotate(-20deg);
+            /* Elegant tilt */
+            filter: brightness(1.1);
+            /* Keeps it light on dark */
+        }
+
+        .footer-logo-watermark img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Optional: Fade in slightly on hover */
+        .main-footer:hover .footer-logo-watermark {
+            opacity: 0.18;
+            transition: opacity 0.8s ease;
+        }
+
+        /* Responsive: Hide or resize on small screens */
+        @media (max-width: 768px) {
+            .footer-logo-watermark {
+                width: 120px;
+                top: 25%;
+                left: 10%;
+                opacity: 0.08;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-logo-watermark {
+                display: none;
+                /* Optional: Hide on very small screens */
+            }
+        }
+
+        /* ===== Content Container (Above Watermark) ===== */
+        .footer-container {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 2rem;
+        }
+
+        .footer-section {
+            flex: 1 1 220px;
+        }
+
+        .footer-section h3 {
+            color: #fff;
+            margin-bottom: 1.2rem;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: red;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        .footer-section a:hover {
+            color: red;
+            transform: translateX(4px);
+        }
+
+        /* Contact Icons */
+        .contact-list i {
+            width: 20px;
+            color: red;
+            margin-right: 8px;
+        }
+
+        .contact-list a {
+            color: #ccc;
+        }
+
+        .contact-list a:hover {
             color: red;
         }
 
-        /* Responsive nav */
+        /* Social Media Links */
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.8rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #2a2a2a;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: red;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* ===== Full-Width Copyright Bar (At Very Bottom) ===== */
+        .footer-bottom {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 1.2rem 1.5rem;
+            margin-top: 1rem;
+            border-top: 1px solid #333;
+            background-color: #181818;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom p {
+            margin: 0.4rem 0;
+        }
+
+        .footer-bottom a {
+            color: #999;
+            transition: color 0.3s;
+        }
+
+        .footer-bottom a:hover {
+            color: red;
+        }
+
+        /* ===== Responsive Adjustments ===== */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            .footer-container {
                 flex-direction: column;
-                background-color: white;
-                position: absolute;
-                top: 60px;
-                right: 10px;
-                width: 80%;
-                max-width: 300px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                padding: 10px;
-                z-index: 1000;
+                align-items: flex-start;
             }
 
-            .nav-links a {
-                padding: 10px;
-                display: block;
-                color: black;
-                border-bottom: 1px solid #ddd;
+            .footer-section {
+                margin-bottom: 2rem;
             }
 
-            .nav-links a:last-child {
-                border-bottom: none;
+            .footer-logo-watermark {
+                width: 60%;
+                opacity: 0.06;
             }
+        }
 
-            .menu-toggle {
-                display: block;
+        @media (max-width: 480px) {
+            .footer-logo-watermark {
+                display: none;
+                /* Optional: Hide on very small screens */
             }
+        }
+
+        /* Success Button Style */
+        .btn-home {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.8rem 2rem;
+            background-color: red;
+            color: white !important;
+            border: 2px solid #9C27B0;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-home:hover {
+            background-color: #9C27B0;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -218,206 +503,424 @@
         });
     </script>
 
-    <!-- Navigation Bar -->
-    <div class="navbar">
-        <div class="logo">
-            <a id="logo-container" href="https://www.moataschool.co.za" target="_blank" class="brand-logo">
-                <img src="img/favicon.png" width="60">
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="https://www.moataschool.co.za/"><img src="img/favicon.png" width="60"></a>
+
+            <!-- <div class="logo">Moata School</div> -->
+            <a href="https://www.moataschool.co.za/" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Home
             </a>
         </div>
+    </header>
 
-        <!-- Hamburger icon -->
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Apply Online</h1>
+        <p>Start your journey with Moata School. Fill out the form below to apply for admission. We offer quality
+            technical and vocational training to help you build a brighter future.</p>
+            <p>To find out more about course fees please click <a href="https://www.moataschool.co.za/prices" style="color: red; text-decoration: underline;">here</a></p>
+    </section>
 
-        <!-- Navigation links -->
-        <div class="nav-links" id="navLinks">
-            <a href="https://www.moataschool.co.za">Home</a>
-            <a href="https://www.moataschool.co.za/services">Services</a>
-            <a href="https://www.moataschool.co.za/prices">Course Prices</a>
-            <a href="https://www.moataschool.co.za/#contact-footer">Contact</a>
-            <a href="https://www.moataschool.co.za/ppe">Protective Clothes</a>
-            <a href="https://www.moataschool.co.za/legal">Legal</a>
-            <a href="https://certificates.moataschool.co.za/">Certificates</a>
+    <!-- Application Form -->
+    <div class="form-container">
+        <h2 class="form-title">Student Application Form</h2>
+
+        <!-- Success Message -->
+        <div class="success-message" id="success-message" style="display: none; text-align: center;">
+            <i class="fas fa-check-circle" style="font-size: 3rem; color: red; margin-bottom: 1rem;"></i>
+            <h3>Application Submitted Successfully!</h3>
+            <p style="font-size: 1.1rem; margin: 1rem 0;">
+                Thank you for applying to Moata School. We will review your information and contact you within
+                3-5 business days.
+            </p>
+            <p id="countdown" style="margin-top: 0.5rem; font-size: 0.9rem; color: #777;"></p>
+            <a href="https://www.moataschool.co.za/" class="btn-home">Back to Home</a>
+
+            <p style="color: black; font-size: 0.8rem; margin: 1rem 0;">
+                *Your information is protected and will only be used for admission purposes in line with our <a
+                    href="https://www.moataschool.co.za/privacy" style="color: red;">privacy policy.</a></p>
+
         </div>
+
+        <!-- Form with Web3Forms Integration -->
+        <form id="application-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+            <!-- Hidden Web3Forms Access Key (Replace with your actual Access Key) -->
+            <input type="hidden" name="access_key" value="29db7c39-1945-4cb7-bd81-a52b1f84dc8f">
+            <!-- Spam protection: Honeypot -->
+            <input type="checkbox" name="botcheck" style="display: none;" />
+
+            <!-- Custom From & Subject -->
+            <input type="hidden" name="subject" value="New Application from Moata School" />
+            <!-- <input type="hidden" name="from" value="admissions@moataschool.co.za" /> -->
+            <input type="hidden" name="from_name" value="Online Applications - Moata School">
+
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName">First Name *</label>
+                    <input type="text" id="firstName" name="first_name" required />
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name *</label>
+                    <input type="text" id="lastName" name="last_name" required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required />
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth *</label>
+                <input type="date" id="dob" name="dob" required />
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="gender">Gender *</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Select</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                        <option value="Prefer not to say">Prefer not to say</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>South African Citizen? *</label>
+                    <select id="citizenship" name="citizenship" required>
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Conditional: SA ID or Passport -->
+            <div class="form-group" id="idGroup" style="display: none;">
+                <label for="idNumber">South African ID Number *</label>
+                <input type="text" id="idNumber" name="id_number" placeholder="e.g. 9001015566081" />
+            </div>
+
+            <div class="form-group" id="passportGroup" style="display: none;">
+                <label for="passportNumber">Passport Number *</label>
+                <input type="text" id="passportNumber" name="passport_number" placeholder="e.g. A12345678" />
+            </div>
+
+            <div class="form-group">
+                <label for="address">Home Address *</label>
+                <textarea id="address" name="address" rows="3" required></textarea>
+            </div>
+
+            <!-- Course Selection -->
+            <div class="form-group">
+                <label for="course">Which Course Would You Like to Apply For? *</label>
+                <select id="course" name="course" required>
+                    <option value="">Select a Course</option>
+                    <option value="SHE Rep(House keeping) in a workplace">SHE Rep(House keeping) in a workplace</option>
+                    <option value="Operate a service truck">Operate a service truck</option>
+                    <option value="Operate C30/C31-Overhead crane">Operate C30/C31-Overhead crane</option>
+                    <option value="First Aid Level 1">First Aid Level 1</option>
+                    <option value="Operate a forklift(Counter balanced lift trucks F1,F2,F3,F4)">Operate a
+                        forklift(Counter
+                        balanced lift trucks F1,F2,F3,F4)</option>
+                    <option value="Conduct workplace occupational Health and Safety(OHS) Inspections">Conduct workplace
+                        occupational Health and Safety(OHS) Inspections</option>
+                    <option value="Apply occupational health, safety and environmental principles">Apply occupational
+                        health, safety and environmental principles</option>
+                    <option value="Operate a tracked dozer(BULLDOZER)">Operate a tracked dozer(BULLDOZER)</option>
+                    <option value="Operate a skid steer loader(a BOB CAT)">Operate a skid steer loader(a BOB CAT)
+                    </option>
+                    <option value="Operate a Telescopic Boom Handler">Operate a Telescopic Boom Handler</option>
+                    <option value="Operate mobile elevating worK platform(MEWP)">Operate mobile elevating worK
+                        platform(MEWP)</option>
+                    <option value="Operate an Excavator">Operate an Excavator</option>
+                    <option value="Operate a Front end loader">Operate a Front end loader</option>
+                    <option value="Operate a Backhoe/Loader(TLB)">Operate a Backhoe/Loader(TLB)</option>
+                    <option value="Operate a Grader">Operate a Grader</option>
+                    <option value="Operate articulated dump truck(ADT)">Operate articulated dump truck(ADT)</option>
+                    <option value="Fire fighting level 1-2">Fire fighting level 1-2</option>
+                    <option value="Respond and Clean a Spill/HAZMATS/Incident Investigation/HAZCHEM">Respond and Clean a
+                        Spill/HAZMATS/Incident Investigation/HAZCHEM</option>
+                    <option value="SAQA US ID 229998 Working at Height">SAQA US ID 229998 Working at Height</option>
+                    <option value="SAQA US ID 229995 Implement the Fall Protection Plan">SAQA US ID 229995 Implement the
+                        Fall Protection Plan</option>
+                    <option value="SAQA US ID 243275 Scaffolding Erector">SAQA US ID 243275 Scaffolding Erector</option>
+                    <option value="Operate a sideboom">Operate a sideboom</option>
+                    <option value="Operate a scraper">Operate a scraper</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="howDidYouHear">How Did You Hear About Us? *</label>
+                <select id="howDidYouHear" name="how_did_you_hear" required>
+                    <option value="">Select</option>
+                    <option value="Social Media">Social Media</option>
+                    <option value="Friend/Family">Friend or Family</option>
+                    <option value="School Counselor">School Counselor</option>
+                    <option value="Community Event">Community Event</option>
+                    <option value="Radio">Radio</option>
+                    <option value="Flyer/Poster">Flyer/Poster</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Additional Information (Optional)</label>
+                <textarea id="message" name="message" rows="3"
+                    placeholder="Tell us about your background or any special needs..."></textarea>
+            </div>
+                        <p style="color: black; font-size: 0.8rem; margin: 1rem 0;">
+                *Your information is protected and will only be used for admission purposes in line with our <a
+                    href="https://www.moataschool.co.za/privacy" style="color: red; text-decoration: underline;">privacy policy.</a></p>
+
+            <button type="submit" class="btn-submit">
+                <i class="fas fa-paper-plane"></i> Submit Application
+            </button>
+        </form>
     </div>
-
-    <form id="applicationForm" action="https://api.web3forms.com/submit" method="POST">
-        <!-- Web3Forms Access Key -->
-        <input type="hidden" name="access_key" value="29db7c39-1945-4cb7-bd81-a52b1f84dc8f">
-        <input type="hidden" name="subject" value="New Online Application">
-        <input type="hidden" name="from_name" value="Online Applications">
-
-        <!-- Optional: Redirect after success -->
-        <input type="hidden" name="redirect" value="https://application.moataschool.co.za/thanks">
-
-        <h2>Application for Training at Moata School</h2>
-        <h5>To find out more about course fees please click
-            <a href="https://www.moataschool.co.za/prices" target="_blank" style="color: red;">here</a>
-        </h5>
-
-        <label for="course">Which course would you like to apply for?</label>
-        <select name="Course" id="course" required>
-            <option value="">Select a course</option>
-            <option value="SHE Rep(House keeping) in a workplace">SHE Rep(House keeping) in a workplace</option>
-            <option value="Operate a service truck">Operate a service truck</option>
-            <option value="Operate C30/C31-Overhead crane">Operate C30/C31-Overhead crane</option>
-            <option value="First Aid Level 1">First Aid Level 1</option>
-            <option value="Operate a forklift(Counter balanced lift trucks F1,F2,F3,F4)">Operate a forklift(Counter
-                balanced lift trucks F1,F2,F3,F4)</option>
-            <option value="Conduct workplace occupational Health and Safety(OHS) Inspections">Conduct workplace
-                occupational Health and Safety(OHS) Inspections</option>
-            <option value="Apply occupational health, safety and environmental principles">Apply occupational
-                health, safety and environmental principles</option>
-            <option value="Operate a tracked dozer(BULLDOZER)">Operate a tracked dozer(BULLDOZER)</option>
-            <option value="Operate a skid steer loader(a BOB CAT)">Operate a skid steer loader(a BOB CAT)</option>
-            <option value="Operate a Telescopic Boom Handler">Operate a Telescopic Boom Handler</option>
-            <option value="Operate mobile elevating worK platform(MEWP)">Operate mobile elevating worK
-                platform(MEWP)</option>
-            <option value="Operate an Excavator">Operate an Excavator</option>
-            <option value="Operate a Front end loader">Operate a Front end loader</option>
-            <option value="Operate a Backhoe/Loader(TLB)">Operate a Backhoe/Loader(TLB)</option>
-            <option value="Operate a Grader">Operate a Grader</option>
-            <option value="Operate articulated dump truck(ADT)">Operate articulated dump truck(ADT)</option>
-            <option value="Fire fighting level 1-2">Fire fighting level 1-2</option>
-            <option value="Respond and Clean a Spill/HAZMATS/Incident Investigation/HAZCHEM">Respond and Clean a
-                Spill/HAZMATS/Incident Investigation/HAZCHEM</option>
-            <option value="SAQA US ID 229998 Working at Height">SAQA US ID 229998 Working at Height</option>
-            <option value="SAQA US ID 229995 Implement the Fall Protection Plan">SAQA US ID 229995 Implement the
-                Fall Protection Plan</option>
-            <option value="SAQA US ID 243275 Scaffolding Erector">SAQA US ID 243275 Scaffolding Erector</option>
-            <option value="Operate a sideboom">Operate a sideboom</option>
-            <option value="Operate a scraper">Operate a scraper</option>
-        </select>
-
-        <label for="citizen">Are you a SA Citizen in possession of a valid SA ID/Birth Certificate?</label>
-        <select name="SA Citizen" id="citizen" required>
-            <option value="">Select an option</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-        </select>
-
-        <div id="idField" style="display: none;">
-            <label for="idNumber">ID Number</label>
-            <input type="text" name="ID Number" id="idNumber">
-        </div>
-
-        <div id="passportField" style="display: none;">
-            <label for="passportNumber">Passport Number</label>
-            <input type="text" name="Passport Number" id="passportNumber">
-        </div>
-
-        <label for="gender">Gender</label>
-        <select name="Gender" id="gender" required>
-            <option value="">Select Gender</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Non-binary / Non-conforming">Non-binary / Non-conforming</option>
-            <option value="Transgender Male / Trans Man">Transgender Male / Trans Man</option>
-            <option value="Transgender Female / Trans Woman">Transgender Female / Trans Woman</option>
-            <option value="Prefer not to say">Prefer not to say</option>
-            <option value="Other">Other (please specify)</option>
-        </select>
-
-        <!-- Textbox hidden by default -->
-        <div id="otherGenderField" style="display: none; margin-top: 10px;">
-            <label for="otherGender">Please specify your gender</label>
-            <input type="text" name="Other Gender" id="otherGender">
-        </div>
-
-
-        <label for="dob">Date of Birth</label>
-        <input type="date" name="Date of Birth" id="dob" required>
-
-        <label for="initials">Initials</label>
-        <input type="text" name="Initials" id="initials" required>
-
-        <label for="surname">Surname</label>
-        <input type="text" name="Surname" id="surname" required>
-
-        <label for="fullNames">Full Names</label>
-        <input type="text" name="Full Names" id="fullNames" required>
-
-        <label for="email">Email</label>
-        <input type="email" name="Email" id="email" required>
-
-        <label for="mobile">Cellphone Number</label>
-        <input type="tel" name="Cellphone Number" id="mobile" required>
-
-        <label for="address">Address</label>
-        <input type="text" name="Address" id="address" required>
-        <br><br>
-
-        <button type="submit" class="submit_button">Submit Application</button>
-
-        <h6 style="font-size: 9.5px; text-decoration: none;">*Your information is protected and will only be used for
-            admission purposes in line with our
-            <a href="https://www.moataschool.co.za/privacy" target="_blank" style="color: red;">privacy policy.</a>
-        </h6>
-        <br><br><br>
-    </form>
-
-
     <!-- Footer -->
-    <div class="footer">
-        <p> Copyright © 2025 Moata School (Pty) Ltd All Rights Reserved. <a href="https://www.moataschool.co.za/privacy"
-                target="_blank" style="color: red; text-decoration: none;">Privacy Policy</a> <br><br> Powered by |<a
-                href="https://www.semtexagency.co.za" target="_blank" style="color: red; text-decoration: none;">|Semtex
-                Agency.</a></p><br>
-    </div>
+    <footer class="main-footer">
+        <!-- Decorative Logo Watermark -->
+        <div class="footer-logo-watermark">
+            <img src="img/Moata School Logo.png" />
+        </div>
 
+        <div class="footer-container">
+
+            <!-- Get Involved -->
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <ul class="contact-list">
+                    <li><i class="fas fa-check"></i> <a>CETA no: ACC/22/07/00019</a></li>
+                    <li><i class="fas fa-check"></i> <a>TETA no: TETA21-1318</a></li>
+                    <li><i class="fas fa-check"></i> <a>DoL Approval no: DMR 930</a></li>
+                    <li><i class="fas fa-check"></i> <a>BBEEE: LEVEL 1 Contributor</a></li>
+                </ul>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <!-- <li><a href="https://www.moataschool.co.za/">Home</a></li> -->
+                    <li><a href="https://www.moataschool.co.za/services">Services</a></li>
+                    <li><a href="https://www.moataschool.co.za/prices">Course Prices</a></li>
+                    <li><a href="https://www.moataschool.co.za/ppe">Proctective Clothes</a></li>
+                    <li><a href="https://www.moataschool.co.za/legal">Legal</a></li>
+                    <li><a href="https://www.moataschool.co.za/Certificates">Certificates</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <ul class="contact-list">
+                    <li><i class="fas fa-map-marker-alt"></i><a href="https://maps.app.goo.gl/z5KqYy9TiVWQWsJU9">296
+                            Justice Mahomed St, Shop 3A Barclay Square Shopping Centre, Pretoria, 0002.</a> </li>
+                    <li><i class="fas fa-phone"></i> <a href="tel:+27127713972">+27 12 771 3972</a></li>
+                    <li><i class="fas fa-envelope"></i> <a
+                            href="mailto:info@moataschool.co.za">info@moataschool.co.za</a></li>
+                    <li><i class="fas fa-clock"></i> <a href="#">Mon - Sat: 9:00 - 18:00</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Media -->
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/moataschoolZA" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/moataschool" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                        <a href="#" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@moataschoolza" target="_blank" aria-label="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                            <a href="https://www.youtube.com/@moataschool3264" target="_blank" aria-label="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+
+                        </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright & Legal (Full Width Bottom Bar) -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Moata School (Pty) Ltd a division of Mitana Training Consultants (Pty) Ltd. All rights reserved.<br>Powered by <a
+                    href="https://www.semtexagency.co.za/" style="color: red;">Semtex Agency.</a></p>
+            <p>
+                <a href="https://www.moataschool.co.za/privacy">Privacy Policy</a> |
+                <a href="https://www.moataschool.co.za/privacy">Terms of Use</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script for Conditional Fields & Web3Forms -->
     <script>
-        document.getElementById('citizen').addEventListener('change', function () {
-            const citizenStatus = this.value;
-            document.getElementById('idField').style.display = citizenStatus === 'Yes' ? 'block' : 'none';
-            document.getElementById('passportField').style.display = citizenStatus === 'No' ? 'block' : 'none';
-        });
+        const form = document.getElementById('application-form');
+        const successMessage = document.getElementById('success-message');
+        const heroSection = document.querySelector('.hero'); // Targets the hero section
+        const citizenshipSelect = document.getElementById('citizenship');
+        const idGroup = document.getElementById('idGroup');
+        const passportGroup = document.getElementById('passportGroup');
+        const idInput = document.getElementById('idNumber');
+        const passportInput = document.getElementById('passportNumber');
 
-        // Optional: Validation before submission
-        document.getElementById("applicationForm").addEventListener("submit", function (e) {
-            const citizen = document.getElementById("citizen").value;
-            const idNumber = document.getElementById("idNumber").value;
-            const passportNumber = document.getElementById("passportNumber").value;
+        // Toggle conditional fields and required attributes
+        function toggleCitizenshipFields() {
+            if (citizenshipSelect.value === 'Yes') {
+                idGroup.style.display = 'block';
+                passportGroup.style.display = 'none';
+                idInput.setAttribute('required', '');
+                passportInput.removeAttribute('required');
+            } else if (citizenshipSelect.value === 'No') {
+                passportGroup.style.display = 'block';
+                idGroup.style.display = 'none';
+                passportInput.setAttribute('required', '');
+                idInput.removeAttribute('required');
+            } else {
+                idGroup.style.display = 'none';
+                passportGroup.style.display = 'none';
+                idInput.removeAttribute('required');
+                passportInput.removeAttribute('required');
+            }
+        }
 
-            if (citizen === "Yes" && !/^\d{13}$/.test(idNumber)) {
-                alert("Please enter a valid 13-digit ID number.");
-                e.preventDefault();
-            } else if (citizen === "No" && !/^\d{9}$/.test(passportNumber)) {
-                alert("Please enter a valid 9-digit passport number.");
-                e.preventDefault();
+        citizenshipSelect.addEventListener('change', toggleCitizenshipFields);
+        toggleCitizenshipFields(); // Initial setup
+
+        // Form submission with enhanced error feedback
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            // Reset previous error styles
+            const allInputs = form.querySelectorAll('input, select, textarea');
+            allInputs.forEach(input => {
+                input.classList.remove('error-border');
+            });
+
+            // Field labels (for user-friendly names)
+            const fieldLabels = {
+                first_name: 'First Name',
+                last_name: 'Last Name',
+                email: 'Email',
+                phone: 'Phone Number',
+                dob: 'Date of Birth',
+                gender: 'Gender',
+                citizenship: 'Citizenship',
+                address: 'Address',
+                course: 'Course',
+                how_did_you_hear: 'How You Heard About Us'
+            };
+
+            // Collect missing fields
+            const missingFields = [];
+
+            // Check all required fields
+            for (const input of allInputs) {
+                // Skip non-visible and non-required fields
+                if (input.type === 'hidden' || input.name === 'message') continue;
+                if (input.hasAttribute('required') && !input.value.trim()) {
+                    input.classList.add('error-border');
+                    missingFields.push(fieldLabels[input.name] || input.name.replace('_', ' '));
+                }
+            }
+
+            // Check conditional fields (even if not marked required due to timing)
+            if (citizenshipSelect.value === 'Yes' && (!idInput.value || !idInput.value.trim())) {
+                idInput.classList.add('error-border');
+                missingFields.push('South African ID Number');
+            }
+            if (citizenshipSelect.value === 'No' && (!passportInput.value || !passportInput.value.trim())) {
+                passportInput.classList.add('error-border');
+                missingFields.push('Passport Number');
+            }
+
+            // If any fields are missing
+            if (missingFields.length > 0) {
+                const errorMessage = `Please fill in the following required fields:\n• ${missingFields.join('\n• ')}`;
+                alert(errorMessage);
+
+                // Scroll to first missing field
+                const firstMissing = form.querySelector('.error-border');
+                if (firstMissing) {
+                    firstMissing.focus({ behavior: 'smooth' });
+                    firstMissing.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+
+                return; // Stop submission
+            }
+
+            // ✅ SUCCESS: Hide hero, show success, redirect after 15s
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    // Hide the hero section (Apply Online text)
+                    if (heroSection) {
+                        heroSection.style.display = 'none';
+                    }
+
+                    // Hide the form
+                    form.style.display = 'none';
+
+                    // Show success message
+                    successMessage.style.display = 'block';
+
+                    const countdownElement = document.getElementById('countdown');
+                    let timeLeft = 15;
+                    countdownElement.textContent = `Redirecting to home in ${timeLeft} seconds...`;
+
+                    const timer = setInterval(() => {
+                        timeLeft -= 1;
+                        countdownElement.textContent = `Redirecting to home in ${timeLeft} seconds...`;
+                        if (timeLeft <= 0) {
+                            clearInterval(timer);
+                        }
+                    }, 1000);
+
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                    // Auto-redirect after 15 seconds
+                    setTimeout(() => {
+                        window.location.href = 'https://www.moataschool.co.za/'; // Redirect to home
+                    }, 15000); // 15 seconds
+
+                } else {
+                    alert('Submission failed: ' + result.message);
+                }
+            } catch (error) {
+                alert('Network error. Please try again.');
             }
         });
+
+
     </script>
-
-
-    <script>
-        function toggleMenu() {
-            var navLinks = document.getElementById("navLinks");
-            navLinks.style.display = navLinks.style.display === "flex" ? "none" : "flex";
-        }
-
-        // Optional: auto-close the menu when clicking a link (for better UX)
-        document.querySelectorAll('#navLinks a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 768) {
-                    document.getElementById("navLinks").style.display = "none";
-                }
-            });
-        });
-    </script>
-
-    <script>
-    document.getElementById('gender').addEventListener('change', function () {
-        const otherGenderField = document.getElementById('otherGenderField');
-        if (this.value === 'Other') {
-            otherGenderField.style.display = 'block';
-            document.getElementById('otherGender').required = true;
-        } else {
-            otherGenderField.style.display = 'none';
-            document.getElementById('otherGender').required = false;
-        }
-    });
-</script>
-
 
 </body>
 
