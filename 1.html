@@ -274,13 +274,13 @@
         /* ===== Smaller, Positioned Watermark ===== */
         .footer-logo-watermark {
             position: absolute;
-            top: 1%;
+            top: 10%;
             /* Adjust vertical position */
-            left: 1%;
+            left: -2%;
             /* Sits just inside the left edge */
-            width: 475px;
+            width: 600px;
             /* Much smaller than before */
-            opacity: 0.3;
+            opacity: 0.2;
             /* Subtle, but visible */
             pointer-events: none;
             z-index: 1;
@@ -483,6 +483,69 @@
             transform: translateY(-2px);
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
         }
+
+        /* ===== Footer Accreditation Logos ===== */
+.footer-accreditation {
+  width: 100%;
+  padding: 2rem 1.5rem;
+  background-color: #1c1c1c;
+  text-align: center;
+}
+
+.footer-accreditation h4 {
+  color: #c2931c;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.logo-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo-grid img {
+  height: 60px; /* Uniform height */
+  max-width: 160px;
+  object-fit: contain;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+.logo-grid img:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+/* Responsive: Adjust on smaller screens */
+@media (max-width: 900px) {
+  .logo-grid {
+    gap: 1.8rem;
+  }
+  .logo-grid img {
+    height: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo-grid {
+    gap: 1.2rem;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .logo-grid img {
+    height: 40px;
+    max-width: 120px;
+  }
+  .footer-accreditation h4 {
+    font-size: 1.1rem;
+  }
+}
     </style>
 </head>
 
@@ -693,7 +756,7 @@
     <footer class="main-footer">
         <!-- Decorative Logo Watermark -->
         <div class="footer-logo-watermark">
-            <img src="img/Acceditation/Moata-Loader-logo.png" />
+            <img src="img/moata-group.png" />
         </div>
 
         <div class="footer-container">
@@ -701,15 +764,18 @@
             <!-- Get Involved -->
             <div class="footer-section">
                 <h3>About Us</h3>
-                <p style="font-size: 0.8em;"><strong>Moata School Pty Ltd</strong> is a division of <br><strong>Mitana Training Consultants Pty Ltd.</strong> Both compaines are fully
+                <p style="font-size: 0.8em;"><a style="color: red;">Moata School Pty Ltd</a> is a division of <a
+                        style="color: red;">Mitana Training Consultants Pty Ltd.</a> Both compaines are fully
                     registered, compliant and accredited training providers of Heavy Vehicles courses, Lifting & Safety
                     courses, Artisan courses, Mining courses, etc. To learn more about our Compliance and Legal standing
-                    <a href="https://www.moataschool.co.za/legal" style="color: red; text-decoration: underline;">click here.</a></p>
+                    <a href="https://www.moataschool.co.za/legal" style="color: red; text-decoration: underline;">click
+                        here.</a>
+                </p>
                 <ul class="contact-list">
-                    <li><i class="fas fa-check"></i> <a style="font-size: 0.8em;">CETA accreditation no: ACC/22/07/00019</a></li>
-                    <li><i class="fas fa-check"></i> <a style="font-size: 0.8em;">TETA accreditation no: TETA21-1318</a></li>
-                    <li><i class="fas fa-check"></i> <a style="font-size: 0.8em;">SA Department of Labour: DMR930</a></li>
-                    <li><i class="fas fa-check"></i> <a style="font-size: 0.8em;">BBEEE: LEVEL 1 Contributor</a></li>
+                    <li><i class="fas fa-check"></i> <a>CETA no: ACC/22/07/00019</a></li>
+                    <li><i class="fas fa-check"></i> <a>TETA no: TETA21-1318</a></li>
+                    <li><i class="fas fa-check"></i> <a>DoL Approval no: DMR 930</a></li>
+                    <li><i class="fas fa-check"></i> <a>BBEEE: LEVEL 1 Contributor</a></li>
                 </ul>
             </div>
 
@@ -721,10 +787,8 @@
                     <li><a href="https://www.moataschool.co.za/services">Services</a></li>
                     <li><a href="https://www.moataschool.co.za/prices">Course Prices</a></li>
                     <li><a href="https://www.moataschool.co.za/ppe">Proctective Clothes</a></li>
-                    <li><a href="https://www.moataschool.co.za/legal">Legal & Compliance</a></li>
+                    <li><a href="https://www.moataschool.co.za/legal">Legal</a></li>
                     <li><a href="https://www.moataschool.co.za/Certificates">Certificates</a></li>
-                    <li><a href="https://www.moataschool.co.za/privacy">Privacy Policy</a></li>
-                    <li><a href="https://www.moataschool.co.za/terms-of-use">Terms of Use</a></li>
                 </ul>
             </div>
 
@@ -761,6 +825,18 @@
 
                         </a>
                 </div>
+            </div>
+        </div>
+
+        <!-- Accreditation Logos -->
+        <div class="footer-accreditation">
+            <h4>Recognized & Accredited By</h4>
+            <div class="logo-grid">
+                <img src="img/Acceditation/ceta2.png" width="500" alt="Umalusi Logo" />
+                <img src="img/Acceditation/TETA_Logo_mobile.png" alt="DHET Logo" />
+                <img src="img/Acceditation/labour.png" alt="CETA Logo" />
+                <img src="img/Acceditation/b-bbee-comission-logo-spatter-media.png" alt="QCTO Logo" />
+                <img src="img/Acceditation/SAQA_logo.svg_.png" alt="SAQA Logo" />
             </div>
         </div>
 
